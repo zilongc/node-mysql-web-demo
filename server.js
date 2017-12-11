@@ -9,6 +9,7 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
+// 静态资源处理
 app.use(express.static('public'));
 
 // connection configurations
@@ -18,10 +19,10 @@ const mc = mysql.createConnection({
     password: 'password',
     database: 'tasks'
 });
- 
+
 // connect to database
 mc.connect();
- 
+
 // default route
 app.get('/', function (req, res) {
     return res.send({ error: true, message: 'hello' })
